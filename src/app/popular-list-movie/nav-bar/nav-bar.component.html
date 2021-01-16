@@ -1,0 +1,17 @@
+<div class="nav-bar">
+  <mat-toolbar>
+    <div class="buttons-group">
+      <button mat-button routerLink="/" [ngClass]="{'active': router.url === '/'}">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-button (click)="toFavorite()" [ngClass]="{'active': router.url === '/favorites'}">
+        <mat-icon>movie</mat-icon>
+        <span>Favorites</span>
+      </button>
+    </div>
+
+    <span>Backup-IT</span>
+  </mat-toolbar>
+  <mat-divider></mat-divider>
+</div>

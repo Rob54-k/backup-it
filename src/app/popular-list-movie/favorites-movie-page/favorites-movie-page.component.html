@@ -1,0 +1,16 @@
+<div class="container">
+  <app-nav-bar></app-nav-bar>
+  <div class="wrapper" *ngIf="!isFavorites">
+    <div class="header">
+      <h1>Favorite movies</h1>
+    </div>
+    <div class="movie-list">
+      <div class="movie-item" *ngFor="let movie of movieList">
+        <app-movie [movie]="movie" (goToMovieAbout)="goToMovieAbout($event)" (deleteFavorite)="deleteFavorite($event)"></app-movie>
+      </div>
+    </div>
+  </div>
+  <div class="no-favorite-block" *ngIf="isFavorites">
+    No one movie favorite!
+  </div>
+</div>

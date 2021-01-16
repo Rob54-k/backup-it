@@ -1,0 +1,23 @@
+<div class="container">
+  <app-nav-bar></app-nav-bar>
+  <div class="wrapper">
+    <div class="header">
+      <h1>Popular Movies</h1>
+    </div>
+    <div class="search-movie">
+      <mat-form-field class="search-form">
+        <mat-label>Search movie</mat-label>
+        <input matInput type="text" [(ngModel)]="value" (input)="searchMovie(value)">
+      </mat-form-field>
+    </div>
+    <div class="movie-list" *ngIf="!isLoader">
+      <div class="movie-item" *ngFor="let movie of movieList">
+        <app-movie [movie]="movie" (goToMovieAbout)="goToMovieAbout($event)"></app-movie>
+      </div>
+    </div>
+    <mat-paginator [length]="totalPage" [pageSize]="20" hidePageSize="true" (page)="onPaginateChange($event)"></mat-paginator>
+    <div class="loading-block" *ngIf="isLoader">
+      Loading...
+    </div>
+  </div>
+</div>

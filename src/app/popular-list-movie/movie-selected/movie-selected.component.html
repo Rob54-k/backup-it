@@ -1,0 +1,104 @@
+<div class="container" *ngIf="movie" [ngStyle]="{'background-image': 'linear-gradient(180deg, rgba(0, 0, 0, 0.84) 724px,#232323 99%), url('+appStateService.imageUrl + movie.backdrop_path+')'}">
+  <app-nav-bar></app-nav-bar>
+  <div class="wrapper">
+    <div class="image-block">
+      <img [src]="appStateService.imageUrl + movie.poster_path" [alt]="movie.title">
+    </div>
+    <div class="main-content">
+      <div class="header">
+        <h2>{{ movie.title }}</h2>
+        <button mat-button (click)="setMovieFavorite(movie)">{{ movie.favorite ? 'Delete from favorite' : 'Add to favorite' }}</button>
+      </div>
+      <div class="list-info">
+        <mat-list>
+          <div class="item">
+            <mat-list-item>
+              <span>Original language:</span>
+              {{ movie.original_language }}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </div>
+
+          <div class="item">
+            <mat-list-item>
+              <span>Release date:</span>
+              {{ movie.release_date }}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </div>
+
+          <div class="item" *ngIf="movie.budget > 0">
+            <mat-list-item>
+              <span>Budget:</span>
+              {{ movie.budget }}$
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </div>
+
+          <div class="item" *ngIf="movie.revenue > 0">
+            <mat-list-item>
+              <span>Revenue:</span>
+              {{ movie.revenue }}$
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </div>
+
+          <div class="item">
+            <mat-list-item>
+              <span>Vote average:</span>
+              {{ movie.vote_average }} of 10
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </div>
+
+          <div class="item">
+            <mat-list-item>
+              <span>Vote count:</span>
+              {{ movie.vote_count }}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </div>
+
+          <div class="item" *ngIf="movie.runtime > 0">
+            <mat-list-item>
+              <span>Runtime:</span>
+              {{ movie.runtime }}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </div>
+
+          <div class="item">
+            <mat-list-item>
+              <span>Popularity:</span>
+              {{ movie.popularity }}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </div>
+
+          <div class="item">
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Overview:
+                </mat-panel-title>
+                <mat-panel-description>
+                  {{ movie.overview | truncate:[80]  }}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>{{ movie.overview }}</p>
+            </mat-expansion-panel>
+          </div>
+
+        </mat-list>
+      </div>
+    </div>
+    <div class="recommendation-block" *ngIf="recommendationMovieList.length">
+      <h2>Recommendation movies</h2>
+      <div class="recommendation-movie">
+        <div class="movie-item" *ngFor="let movie of recommendationMovieList">
+          <app-movie [movie]="movie" (goToMovieAbout)="goToMovie($event)"></app-movie>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

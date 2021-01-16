@@ -1,0 +1,13 @@
+<mat-card class="movie-card">
+  <img mat-card-image *ngIf="movie.poster_path" [src]="appState.imageUrl + movie.poster_path" alt="{{ movie.title }}">
+  <img mat-card-image *ngIf="!movie.poster_path" src="assets/no-image.jpg" alt="{{ movie.title }}">
+  <mat-card-title>{{ movie.title | truncate:[15] }}</mat-card-title>
+  <div class="info-block" (click)="goToMovie(movie.id)">
+    <div class="rating" *ngIf="movie.vote_average">
+      <img src="assets/star.png" alt="">
+      {{ movie.vote_average }}
+    </div>
+    <div class="genre"><span>{{ movie.genres.join(', ') }}</span></div>
+  </div>
+  <mat-icon (click)="setFavorite(movie)" [ngClass]="{'mat-checked': movie.favorite}">bookmark</mat-icon>
+</mat-card>

@@ -1,0 +1,112 @@
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px;
+    .image-block {
+      flex-basis: 40%;
+      display: flex;
+      justify-content: center;
+      min-width: 35%;
+      margin-right: 30px;
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        max-height: 500px;
+        object-fit: contain;
+      }
+    }
+
+    .main-content {
+      flex-basis: 56%;
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h2 {
+          font-size: 1.5rem;
+          color: var(--main-font-color);
+          margin: 0;
+        }
+
+        button {
+          font-size: 0.9rem;
+          color: var(--main-font-color);
+          background-color: var(--white);
+        }
+      }
+
+      .list-info {
+        .mat-list-base .mat-list-item {
+          color: var(--white);
+
+          span {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--main-font-color);
+            margin-right: 40px;
+            width: 150px;
+          }
+        }
+
+        .mat-divider {
+          border-top-color: var(--mat-divider-color);
+          border-top-width: 2px;
+        }
+
+        .mat-expansion-panel {
+          background-color: transparent;
+          box-shadow: none;
+        }
+
+        .mat-expansion-panel-header {
+          padding: 0 16px;
+        }
+
+        .mat-expansion-panel-header-title {
+          color: var(--main-font-color);
+          font-size: 1rem;
+          font-weight: bold;
+          min-width: 150px;
+          margin-right: 40px;
+        }
+
+        .mat-expansion-panel-header-description {
+          color: var(--white);
+        }
+
+        ::ng-deep.mat-expansion-panel-content {
+          color: var(--white);
+        }
+      }
+    }
+
+    .recommendation-block {
+      margin-top: 50px;
+      width: 100%;
+      background-color: rgba(80, 80, 80, 0.56);
+
+      h2 {
+        color: var(--main-font-color);
+        margin-left: 30px;
+      }
+
+      .recommendation-movie {
+        display: flex;
+        overflow-y: auto;
+
+        .movie-item {
+
+        }
+      }
+    }
+  }
+}

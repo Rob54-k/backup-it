@@ -1,0 +1,31 @@
+.nav-bar {
+
+  .mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--nav-bar-bg);
+
+
+    .buttons-group {
+      .mat-button {
+        color: var(--main-font-color);
+        vertical-align: sub;
+        margin-right: 20px;
+
+        span {
+          vertical-align: sub;
+          font-size: 1rem;
+        }
+      }
+
+      .mat-button.active {
+        background-color: var(--bg-active-button-color);
+      }
+    }
+
+    span {
+      font-size: 1.2rem;
+      color: var(--main-font-color);
+    }
+  }
+}

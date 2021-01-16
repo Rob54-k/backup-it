@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  //colors
+  --main-font-color: #42b983;
+  --grey: #595858;
+  --nav-bar-bg: rgba(245, 245, 245, 0.91);
+  --white: #ffffff;
+  --mat-divider-color: #fafafabd;
+  --book-mark-icon-color: #dedbdb;
+  --book-mark-icon-hover-color: #f1efef;
+  --bg-active-button-color: rgba(166, 163, 163, 0.16);
+}
