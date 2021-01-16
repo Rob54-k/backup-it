@@ -14,7 +14,6 @@ export class AppDataService {
   public movie: MovieModel;
   public movieDetail: MovieDetailModel;
   public genresList: Array<{id: number, name: string }> = [];
-  public moviesFavorite: MovieModel[] = [];
 
   constructor(
     private _apiService: AppApiService,
@@ -161,23 +160,7 @@ export class AppDataService {
     if (favoriteMovies) {
       return favoriteMovies;
     } else {
-      return []
+      return [];
     }
   }
-
-  // public addMovieToFavorite(movieId) {
-  //   this._apiService.createMovieToFavoriteList(movieId).subscribe(
-  //     (response) => {},
-  //     (error) => {},
-  //     () => {}
-  //   );
-  // }
-  //
-  // public removeMovieFromFavorite(movieId) {
-  //   this._apiService.removeMovieFromFavoriteList(movieId).subscribe(
-  //     (response) => {},
-  //     (error) => {},
-  //     () => {}
-  //   );
-  // }
 }
